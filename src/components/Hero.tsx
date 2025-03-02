@@ -43,16 +43,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-      
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-float">
-        <button 
-          onClick={scrollToContent}
-          aria-label="Scroll to content"
-          className="p-2 rounded-full bg-white/30 backdrop-blur-sm border border-white/20 hover:bg-white/40 transition-all"
-        >
-          <ArrowDown size={24} className="text-bible-navy/70" />
-        </button>
-      </div>
     </section>
   );
 };
