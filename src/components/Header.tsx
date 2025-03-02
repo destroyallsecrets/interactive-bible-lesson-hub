@@ -36,7 +36,7 @@ const Header: React.FC = () => {
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center space-x-10">
           <a href="/" className="nav-link">Home</a>
-          <a href="/lessons" className="nav-link">Lessons</a>
+          <a href="/Lessons" className="nav-link">Lessons</a>
           <a href="#about" className="nav-link">About</a>
           <a href="#resources" className="nav-link">Resources</a>
           <a href="#contact" className="nav-link">Contact</a>
