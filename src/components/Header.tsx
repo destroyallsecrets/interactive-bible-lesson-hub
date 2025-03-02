@@ -1,6 +1,8 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,16 +29,16 @@ const Header: React.FC = () => {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <a href="/" className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2">
           <span className="text-xl font-serif font-semibold text-bible-navy">
             Bible Study
           </span>
-        </a>
+        </Link>
 
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center space-x-10">
-          <a href="/" className="nav-link">Home</a>
-          <a href="/Lessons" className="nav-link">Lessons</a>
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/lessons" className="nav-link">Lessons</Link>
           <a href="#about" className="nav-link">About</a>
           <a href="#resources" className="nav-link">Resources</a>
           <a href="#contact" className="nav-link">Contact</a>
@@ -58,20 +60,20 @@ const Header: React.FC = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md animate-fade-in">
             <nav className="flex flex-col py-4 px-6">
-              <a 
-                href="/" 
+              <Link 
+                to="/" 
                 className="py-3 px-4 hover:bg-bible-parchment transition-colors duration-200 rounded"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Home
-              </a>
-              <a 
-                href="/lessons" 
+              </Link>
+              <Link 
+                to="/lessons" 
                 className="py-3 px-4 hover:bg-bible-parchment transition-colors duration-200 rounded"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Lessons
-              </a>
+              </Link>
               <a 
                 href="#about" 
                 className="py-3 px-4 hover:bg-bible-parchment transition-colors duration-200 rounded"
