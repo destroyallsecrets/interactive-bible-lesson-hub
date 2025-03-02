@@ -9,35 +9,11 @@ interface Question {
   note?: string;
 }
 
-const questions: Question[] = [
-  { 
-    id: 1, 
-    text: "What made Moses turn aside to see the burning bush? What 'burning bushes' might God be using to get your attention?",
-    note: "Consider how God meets us in our everyday experiences, just as He met Moses while he was tending sheep."
-  },
-  { 
-    id: 2, 
-    text: "How did God identify Himself to Moses? Why is this significant?",
-    note: "God identified Himself as 'the God of Abraham, the God of Isaac, and the God of Jacob' - connecting to His covenant promises."
-  },
-  { 
-    id: 3, 
-    text: "What was Moses' initial response to God's call? How do you relate to his response?",
-    note: "Moses responded with insecurity and doubt, asking 'Who am I that I should go?'"
-  },
-  { 
-    id: 4, 
-    text: "How did God reassure Moses that he was capable of fulfilling this calling?",
-    note: "God promised His presence: 'I will be with you.'"
-  },
-  { 
-    id: 5, 
-    text: "What does this passage teach us about how God responds to the suffering of His people?",
-    note: "God said, 'I have surely seen the affliction of my people... and have heard their cry.'"
-  },
-];
+interface DiscussionQuestionsProps {
+  questions: Question[];
+}
 
-const DiscussionQuestions: React.FC = () => {
+const DiscussionQuestions: React.FC<DiscussionQuestionsProps> = ({ questions }) => {
   const [expandedId, setExpandedId] = useState<number | null>(null);
   
   const toggleQuestion = (id: number) => {
