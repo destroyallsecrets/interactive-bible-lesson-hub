@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { ArrowDown } from 'lucide-react';
+import { getLatestLesson } from '../data/lessons';
 
 const Hero: React.FC = () => {
+  const latestLesson = getLatestLesson();
+  
   const scrollToContent = () => {
     const contentElement = document.getElementById('lesson-content');
     if (contentElement) {
@@ -25,11 +28,11 @@ const Hero: React.FC = () => {
           </div>
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-serif font-medium mb-6 leading-tight text-bible-navy animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Moses and the Burning Bush
+            {latestLesson.title}
           </h1>
           
           <p className="text-xl text-bible-navy/80 mb-10 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            Exploring God's call to Moses and discovering our own calling in Exodus 3:1-10
+            {latestLesson.description}
           </p>
           
           <div className="animate-fade-in" style={{ animationDelay: '0.6s' }}>

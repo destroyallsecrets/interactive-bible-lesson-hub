@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Menu, X } from 'lucide-react';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -9,11 +8,13 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
@@ -35,64 +36,67 @@ const Header: React.FC = () => {
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center space-x-10">
           <a href="/" className="nav-link">Home</a>
+          <a href="/lessons" className="nav-link">Lessons</a>
           <a href="#about" className="nav-link">About</a>
-          <a href="#lessons" className="nav-link">Lessons</a>
           <a href="#resources" className="nav-link">Resources</a>
           <a href="#contact" className="nav-link">Contact</a>
         </nav>
 
         {/* Mobile menu button */}
-        <button 
-          className="md:hidden text-bible-navy"
+        <button
+          className="md:hidden text-bible-navy hover:text-bible-navy/80 transition-colors duration-200"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? (
+            <X size={24} />
+          ) : (
+            <Menu size={24} />
+          )}
         </button>
-      </div>
 
-      {/* Mobile menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md animate-fade-in">
-          <nav className="flex flex-col py-4 px-6">
-            <a 
-              href="/" 
-              className="py-3 px-4 hover:bg-bible-parchment transition-colors duration-200 rounded"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Home
-            </a>
-            <a 
-              href="#about" 
-              className="py-3 px-4 hover:bg-bible-parchment transition-colors duration-200 rounded"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              About
-            </a>
-            <a 
-              href="#lessons" 
-              className="py-3 px-4 hover:bg-bible-parchment transition-colors duration-200 rounded"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Lessons
-            </a>
-            <a 
-              href="#resources" 
-              className="py-3 px-4 hover:bg-bible-parchment transition-colors duration-200 rounded"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Resources
-            </a>
-            <a 
-              href="#contact" 
-              className="py-3 px-4 hover:bg-bible-parchment transition-colors duration-200 rounded"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Contact
-            </a>
-          </nav>
-        </div>
-      )}
+        {/* Mobile menu */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-md animate-fade-in">
+            <nav className="flex flex-col py-4 px-6">
+              <a 
+                href="/" 
+                className="py-3 px-4 hover:bg-bible-parchment transition-colors duration-200 rounded"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Home
+              </a>
+              <a 
+                href="/lessons" 
+                className="py-3 px-4 hover:bg-bible-parchment transition-colors duration-200 rounded"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Lessons
+              </a>
+              <a 
+                href="#about" 
+                className="py-3 px-4 hover:bg-bible-parchment transition-colors duration-200 rounded"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                About
+              </a>
+              <a 
+                href="#resources" 
+                className="py-3 px-4 hover:bg-bible-parchment transition-colors duration-200 rounded"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Resources
+              </a>
+              <a 
+                href="#contact" 
+                className="py-3 px-4 hover:bg-bible-parchment transition-colors duration-200 rounded"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact
+              </a>
+            </nav>
+          </div>
+        )}
+      </div>
     </header>
   );
 };
