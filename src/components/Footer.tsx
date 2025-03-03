@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Mail, Phone, MapPin, Github } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -83,8 +83,20 @@ const Footer: React.FC = () => {
             </div>
           </div>
           
-          <div className="mt-12 pt-6 border-t border-white/10 text-center text-white/50 text-sm">
-            <p>© {currentYear} Bible Study Group. All rights reserved.</p>
+          <div className="mt-12 pt-6 border-t border-white/10 text-center">
+            <p className="text-white/50 text-sm mb-2">© {currentYear} Bible Study Group. All rights reserved.</p>
+            <div className="flex items-center justify-center space-x-2 text-white/60 text-sm">
+              <span>Developed by Miles Alexander Moore</span>
+              <a 
+                href="https://github.com/destroyallsecrets" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center hover:text-bible-gold transition-colors"
+              >
+                <Github size={16} className="mr-1" />
+                destroyallsecrets
+              </a>
+            </div>
           </div>
         </div>
       </div>
